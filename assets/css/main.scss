@@ -1,0 +1,15 @@
+@import 'header';
+@import 'footer';
+@import 'modale';
+@import 'single-photo'; 
+@import 'frontgrid'; 
+
+
+
+.body {
+    margin-right: 90px;
+    @media (max-width: 768px) {
+        margin-right: 0;
+      }
+}
+

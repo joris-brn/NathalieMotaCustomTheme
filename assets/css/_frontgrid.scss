@@ -1,0 +1,26 @@
+.affichage_photo-fp {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    @media (min-width: 1747px) {
+        margin-left: 140px;
+        margin-right: 140px;    
+    }
+}
+
+.affichage_photo-fp img {
+    width: 564px;
+    height: 495px;
+    object-fit: cover;
+    padding: 0;
+    margin: 0;
+    @media (max-width: 768px) {
+        margin-right: 0;
+        width: 318px;
+        height: 280px;
+      }
+}

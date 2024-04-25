@@ -1,0 +1,238 @@
+/* Premier bloc */
+
+.conteneur {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    margin-top: 20px;
+    @media (max-width: 768px) {
+        flex-direction: column-reverse;
+        align-items: center;
+      }
+}
+
+.information-photo {
+    margin-left: 100px;
+    width: 50%;
+    height: 100%;       
+    margin-top: auto;
+    border-bottom: 1px solid black;
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin: 0;
+      }
+}
+.information-photo .titre-photo {
+    font-family: 'Space Mono', monospace;
+    font-size: 66px;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 58px; 
+    text-transform: uppercase;
+    position: relative;
+    width: min-content;
+    flex-direction: column;
+    @media (max-width: 768px) {
+        width: min-content;
+      }
+}
+.information-photo .info {
+    font-family: 'Space Mono', monospace;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 20px;
+    color: black;
+    @media (max-width: 768px) {
+        font-size: 20px;
+      }    
+}
+.information-photo ul {
+   padding-left: 0;
+   @media (max-width: 768px) {
+    padding-left: 0%;
+  }
+}
+.information-photo li {
+    list-style: none;
+    gap: 20px;
+}
+
+.affichage-photo {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.affichage-photo img {
+    width: 563px;
+    max-height: 844px;
+    margin-left: 21px;
+    object-fit: cover;
+    @media (max-width: 768px) {
+    margin: 0;
+    width: 265px;
+    max-height: 397px;
+    
+    
+    }
+}
+
+/* Contact block */
+
+.contact_block {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    margin-left: 100px;
+    border-bottom: 1px solid black;
+    margin-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    @media (max-width: 768px) {
+        margin-left: 0;
+      }
+}
+
+.contact {
+    display: flex;
+    gap : 50px;
+    width: 750px;
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+      }
+}
+
+.contact p {
+    display: flex;
+    font-family: 'Poppins';
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+    max-width: 100%;
+    @media (max-width: 768px) {
+        font-size: 18px;
+      }
+}
+
+.contact_button {
+    height: 50px;
+    min-width: 90px;
+    max-width: 222px;
+    width: 57.4%;
+    background-color: #D8D8D8;
+    border: none;
+    border-radius: 2px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    outline: none;
+}
+
+/*  NAVIGATION PHOTOS */
+
+.nav_photo {
+    margin-left: auto;
+    @media (max-width: 768px) {
+        display: none;
+      }
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: black;
+}
+
+.miniature {
+    display: none;
+}
+
+.next-post-arrow:hover .miniature,
+.prev-post-arrow:hover .miniature {
+    display: block;
+}
+
+
+
+.custom_arrow {
+    font-size: 24px; 
+    margin: 0 10px; 
+}
+
+
+/* Recommandation section */
+
+.recommandations {
+    margin-top: 55px;
+    margin-left: 100px;
+    @media (max-width: 768px) {
+        margin-left: 0;
+      }
+}
+
+.title_reco {
+    @media (max-width: 768px) {
+        display: flex;
+        justify-content: center;
+      }
+}
+
+.title_reco h3 {
+    font-family: "Space Mono", monospace;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    margin-bottom: 50px;
+}
+
+.related-photos {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between;
+    @media (max-width: 1205px) {
+        flex-direction: column;
+        align-items: center;
+      }
+
+        
+}
+
+.related-photo {
+    margin-bottom: 100px;
+    @media (max-width: 768px) {
+        margin-bottom: 40px;
+      }
+}
+
+.related-photo img {
+    width: 500px;
+    height: 440px;
+    object-fit: cover;
+    @media (max-width: 768px) {
+        width: 318px;
+        height: 280px;
+      }
+}
+
+

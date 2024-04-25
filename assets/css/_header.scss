@@ -1,0 +1,182 @@
+/* ---------------------------------------------- STRUCTURE ---------------------------------- */
+
+
+/* Header */
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;    
+    height: 80px;
+    gap: 100px;
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.logo img {
+    width: 216px; 
+    height: 14px;
+    margin-top : 39px;
+    margin-bottom : 35px;
+    
+}
+
+header nav ul li a {
+    font-family: 'Space Mono', monospace;
+    font-size: 20px;
+    font-weight: 400;
+    color: #000;
+    text-transform: uppercase;
+    width: 100%;
+  }
+
+  header nav ul li a:hover {
+    font-weight: 700;
+  }
+
+  .header-menu {
+    display: flex;
+    gap: 45px;
+    overflow: hidden;
+    position:static;
+    @media (max-width: 910px) {
+      visibility: hidden;
+    }
+  }
+
+  .header-menu a {
+    text-decoration: none;
+  }
+
+  .header-menu li {
+    list-style: none;
+  }
+  
+
+/* Hero Header */
+
+.hero-header img {
+  width: 100%;
+  margin: 0;
+}
+
+
+/* Menu Burger */
+
+.burger_button {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px;
+  height: 30px;
+  right: 20px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  visibility: hidden; /* Masquer par défaut */
+}
+
+@media (max-width: 910px) {
+  .burger_button {
+    visibility: visible;
+  }
+}
+
+/* SPAN BOUTON BURGER */
+
+.burger_button span {
+  display: inline-block;
+  width: 90%;
+  height: 3px;
+  background-color: black;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+.fullscreen_menu {
+  display: none; /* Masqué par défaut */
+  position: absolute; 
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #E00000; 
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* Classe CSS pour rendre visible le FullscreenMenu */
+.fullscreen_menu.is-visible {
+  display: flex; 
+  opacity: 1; 
+}
+
+.menu-menu-1-container li {
+  display: flex;
+  list-style: none;
+  font-size: 44PX;
+  text-transform: uppercase;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.fullscreen_menu li a {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  color: #FFF;
+  font-family: 'Space Mono', monospace;
+  text-decoration: none;
+  margin-bottom: 20px;
+
+  
+}
+
+.header-menu {
+  display: flex;
+  align-items: center;
+}
+
+.header-mobile {
+  gap: 20px;
+
+}
+
+
+
+/* ------------------------------ MEDIA QUERIES ---------------------- */
+
+/* Small devices (phones, less than 768px) */
+@media (max-width: 767.98px) {
+
+  header {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+      gap: 28px;
+      margin-left: 30px;
+  }
+  header nav ul li a {
+    font-size: 16px;
+  }
+
+
+  .header-menu {
+    margin: 0;
+  }
+
+  .logo img {
+    width: 138px; 
+    height: 9px;
+   
+    
+}
+}
+
+
+
