@@ -34,6 +34,52 @@ function register_my_menu() {
 }
 
 
+/* Requête Ajax pour charger plus de photos */
+
+function load_more_photos() {
+    $page = isset($_POST['page']) ? intval($_POST['page']) : 2; // Par défaut, commence à la page 2
+
+    $query = new WP_Query(array(
+        'post_type' => 'photo', 
+        'posts_per_page' => 8, // Gardez le même nombre de photos par page
+        'paged' => $page,
+    ));
+
+    if ($query->have_posts()) {
+        ob_start(); // Démarrer le buffer de sortie
+        while ($query->have_posts()) {
+            $query->the_post();
+            get_template_part('/template_part/photo_block');
+        }
+        $response = ob_get_clean(); // Récupérer le contenu du buffer
+        wp_send_json_success($response); // Envoyer le contenu AJAX
+    } else {
+        wp_send_json_error('Plus de photos');
+    }
+
+    wp_die(); // Terminer la requête
+}
+
+add_action('wp_ajax_load_more_photos', 'load_more_photos');
+add_action('wp_ajax_nopriv_load_more_photos', 'load_more_photos');
+
+/* Chargement du script JS pour Ajax */
+
+function enqueue_load_more_script() {
+    wp_enqueue_script(
+        'load-more',
+        get_stylesheet_directory_uri() . '/assets/load-more.js',
+        array('jquery'),
+        null,
+        true
+    );
+
+    wp_localize_script('load-more', 'ajax_vars', array(
+        'ajax_url' => admin_url('admin-ajax.php'),
+    ));
+}
+
+add_action('wp_enqueue_scripts', 'enqueue_load_more_script');
 
 /* ADD ACTION */
 

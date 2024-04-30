@@ -6,7 +6,8 @@
     <?php
 $affichagefront = new WP_Query(array(
     'post_type' => 'photo', 
-    'posts_per_page' => -1,
+    'posts_per_page' => 8,
+    'paged' => 1,
 ));
 
 if ($affichagefront->have_posts()) { 
@@ -14,8 +15,10 @@ if ($affichagefront->have_posts()) {
         $affichagefront->the_post(); 
         get_template_part('/template_part/photo_block'); 
     }
-}
-
+}   
 ?>
 </section>
+<div class="button_area">
+<button id="load-more-photos">Charger plus</button>
+</div>
 <?php get_footer() ?>
