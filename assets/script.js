@@ -37,13 +37,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* Menu BURGER */
 
+/* Menu BURGER */
+
 document.addEventListener('DOMContentLoaded', function() {
     const burgerButton = document.querySelector('.burger_button');
     const fullscreenMenu = document.querySelector('.fullscreen_menu');
+    const body = document.querySelector('body');
 
     burgerButton.addEventListener('click', function() {
         fullscreenMenu.classList.toggle('is-visible');
+        body.classList.toggle('no-scroll');
+        burgerButton.classList.toggle('active');
     });
 });
+
+
 
 

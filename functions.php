@@ -24,6 +24,7 @@ function mota_custom_fonts() {
     wp_enqueue_style('SpaceMono_Bold', get_template_directory_uri() . './assets/fonts/spacemono-bold.ttf');
     wp_enqueue_style('SpaceMono_Italic', get_template_directory_uri() . './assets/fonts/spacemono-italic.ttf');
     wp_enqueue_style('SpaceMono_BoldItalic', get_template_directory_uri() . './assets/fonts/spacemono-bolditalic.ttf');
+    wp_enqueue_style('space-font', 'https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap', array(), false, 'all');  
 }
 
 /* Ajout de l'emplacement de menu du header */
@@ -31,6 +32,28 @@ function mota_custom_fonts() {
 function register_my_menu() {
     register_nav_menu( 'header-menu', __( 'Header', 'text-domain' ) );
     register_nav_menu( 'footer-menu', __( 'Footer', 'text-domain' ) );
+}
+
+/* Chargement aléatoire photo Hero-header */
+
+function get_random_photo_url() {
+    $args = array(
+        'post_type' => 'photo',
+        'posts_per_page' => 1,
+        'orderby' => 'rand',
+    );
+
+    $random_photo = new WP_Query($args);
+
+    if ($random_photo->have_posts()) {
+        $random_photo->the_post();
+        $image_url = get_the_post_thumbnail_url(get_the_ID(), 'full'); 
+        wp_reset_postdata(); 
+
+        return $image_url;
+    }
+
+    return ''; 
 }
 
 
@@ -41,23 +64,23 @@ function load_more_photos() {
 
     $query = new WP_Query(array(
         'post_type' => 'photo', 
-        'posts_per_page' => 8, // Gardez le même nombre de photos par page
+        'posts_per_page' => 8, // Garde le même nombre de photos par page
         'paged' => $page,
     ));
 
     if ($query->have_posts()) {
-        ob_start(); // Démarrer le buffer de sortie
+        ob_start(); 
         while ($query->have_posts()) {
             $query->the_post();
             get_template_part('/template_part/photo_block');
         }
-        $response = ob_get_clean(); // Récupérer le contenu du buffer
-        wp_send_json_success($response); // Envoyer le contenu AJAX
+        $response = ob_get_clean(); // Récupére le contenu 
+        wp_send_json_success($response); // Envoye le contenu AJAX
     } else {
-        wp_send_json_error('Plus de photos');
+        wp_send_json_error('Plus de photos'); // Message d'erreur si plus de contenu
     }
 
-    wp_die(); // Terminer la requête
+  
 }
 
 add_action('wp_ajax_load_more_photos', 'load_more_photos');

@@ -10,6 +10,7 @@
         align-items: center;
         padding-left: 55px;
         padding-right: 55px;
+        border-bottom: 1px solid black;
       }
 }
 
@@ -24,6 +25,7 @@
         justify-content: center;
         width: 100%;
         margin: 0;
+        border: none;
       }
 }
 .information-photo .titre-photo {
@@ -72,15 +74,18 @@
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
+    margin-left: auto;
 }
 .affichage-photo img {
-    
+    max-width: 563px;
     width: 100%;
     margin-left: 21px;
     object-fit: cover;
+    max-height: auto;
+    height: 697px;
     @media (max-width: 768px) {
     margin: 0;
- 
+    height: 397px;
     }
 }
 
@@ -212,9 +217,7 @@
     @media (max-width: 1205px) {
         flex-direction: column;
         align-items: center;
-      }
-
-        
+      } 
 }
 
 .related-photo {
@@ -233,5 +236,3 @@
         height: 280px;
       }
 }
-
-

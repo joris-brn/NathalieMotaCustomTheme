@@ -11,8 +11,8 @@ jQuery(document).ready(function($) {
             },
             success: function(response) {
                 if (response.success) {
-                    $('.affichage_photo-fp').append(response.data); // Ajouter les nouvelles photos
-                    page++; // Incrémenter le compteur de pages
+                    $('.affichage_photo-fp').append(response.data); // Ajoute les nouvelles photos
+                    page++; // Incrémente le compteur de pages
                 } else {
                     $('#load-more-photos').hide();
                 }
