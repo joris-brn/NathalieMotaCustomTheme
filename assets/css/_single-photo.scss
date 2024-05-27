@@ -5,11 +5,11 @@
     flex-direction: row;
     margin: 0;
     margin-top: 20px;
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
         flex-direction: column-reverse;
         align-items: center;
-        padding-left: 55px;
-        padding-right: 55px;
+        padding-left: 25px;
+        padding-right: 25px;
         border-bottom: 1px solid black;
       }
 }
@@ -20,7 +20,7 @@
     height: 100%;       
     margin-top: auto;
     border-bottom: 1px solid black;
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
         display: flex;
         justify-content: center;
         width: 100%;
@@ -38,7 +38,7 @@
     position: relative;
     width: min-content;
     flex-direction: column;
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
         width: min-content;
       }
 }
@@ -75,6 +75,10 @@
     justify-content: flex-end;
     align-items: center;
     margin-left: auto;
+    @media (max-width: 968px) {
+        justify-content: center;
+        margin : 0;
+}
 }
 .affichage-photo img {
     max-width: 563px;
@@ -101,7 +105,7 @@
     margin-bottom: 20px;
     padding-top: 40px;
     padding-bottom: 40px;
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
         margin-left: 0;
       }
 }
@@ -110,7 +114,7 @@
     display: flex;
     gap : 50px;
     width: 750px;
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
         flex-direction: column;
         align-items: center;
         gap: 15px;
@@ -138,7 +142,7 @@
     background-color: #D8D8D8;
     border: none;
     border-radius: 2px;
-    font-family: 'Space Mono', monospace;
+    font-family: 'SpaceMono_Regular', monospace;
     font-size: 12px;
     outline: none;
 }
@@ -147,7 +151,7 @@
 
 .nav_photo {
     margin-left: auto;
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
         display: none;
       }
 }
@@ -164,9 +168,41 @@
     color: black;
 }
 
-.miniature {
-    display: none;
-}
+.nav_photo .miniatureprev {
+    opacity: 0;
+    top: 850px;
+    width: 81px;
+    height: 71px;
+    position: absolute;
+    transition: opacity 0.2s ease; /* Transition fluide */
+    right: 12%;
+    @media (min-width: 1358px) {
+      right: 10%;
+    }
+    @media (max-width: 1350px) {
+      right: 14%;
+    }
+    @media (max-width: 1208px) {
+      right: 14%;
+    }
+  }
+  .nav_photo .miniaturenext {
+    opacity: 0;
+    top: 850px;
+    width: 81px;
+    height: 71px;
+    position: absolute;
+    transition: opacity 0.2s ease; /* Transition fluide */
+  }
+  
+.miniatureprev:hover {
+    opacity: 1;
+  }
+  .miniaturenext:hover {
+
+    opacity: 1;
+  }
+  
 
 .next-post-arrow:hover .miniature,
 .prev-post-arrow:hover .miniature {

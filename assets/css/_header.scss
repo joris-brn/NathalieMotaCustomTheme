@@ -58,7 +58,7 @@ header nav ul li a {
 
 .hero-header {
   position: relative;
-  height: auto; /* Ajustez la hauteur selon vos besoins */
+  height: auto; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -71,6 +71,11 @@ header nav ul li a {
   margin: 0;
   object-fit: cover;
   object-position: center;
+  @media (max-width: 768px) {
+    max-height: 250px;
+    width: 100%;
+   height: 100%;
+   }  
 }
 
 .hero-overlay {
@@ -94,6 +99,9 @@ header nav ul li a {
   -webkit-text-stroke: 1px white;
   text-shadow: 0em 0em rgba(0, 0, 0, 0.2);
   text-transform: uppercase;
+  @media (max-width: 768px) {
+    font-size: 38px;
+   }  
 } 
 
 
@@ -110,12 +118,13 @@ header nav ul li a {
   cursor: pointer;
   background: transparent;
   border: none;
-  visibility: hidden; /* Masquer par défaut */
+  visibility: hidden; 
 }
 
 @media (max-width: 910px) {
   .burger_button {
     visibility: visible;
+    margin-right: 6%;
   }
 }
 
@@ -123,30 +132,52 @@ header nav ul li a {
 
 .burger_button span {
   display: inline-block;
-  width: 90%;
-  height: 3px;
+  width: 100%;
+  height: 2px;
   background-color: black;
   border-radius: 5px;
   margin-bottom: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease; 
+
+}
+.burger_button.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg); /* Transformation pour la première barre */
 }
 
+.burger_button.active span:nth-child(2) {
+  opacity: 0; /* Masque la deuxième barre lorsqu'elle est active */
+}
+
+.burger_button.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg); /* Transformation pour la troisième barre */
+}
+
+
 .fullscreen_menu {
-  display: none; /* Masqué par défaut */
-  position: absolute; 
+  position: fixed; 
   left: 0;
+  opacity:0;
   width: 100%;
   height: calc(100vh - 80px);
   background: #E00000; 
-  z-index: 1000;
+  z-index: 100;
   justify-content: center;
   align-items: center;
-
+  visibility: hidden; /* Masque le menu pour les interactions */
+  pointer-events: none; /* Empêche le menu de capturer les clics */
+  transition: transform 0.5s ease, opacity 0.6s ease; /* Transition fluide */
+  transform: translateY(100%); /* Menu hors écran */
 }
+
 
 /* Classe CSS pour rendre visible le FullscreenMenu */
 .fullscreen_menu.is-visible {
-  display: flex; 
+  display: flex;
+  visibility: visible; /* Permet les interactions */
+  pointer-events: all; /* Active les clics */
   opacity: 1; 
+  transform: translateX(0); /* Fait glisser le menu en position */
+
 }
 
 .menu-menu-1-container li {
@@ -189,7 +220,7 @@ header nav ul li a {
 
 /* ------------------------------ MEDIA QUERIES ---------------------- */
 
-/* Small devices (phones, less than 768px) */
+
 @media (max-width: 767.98px) {
 
   header {

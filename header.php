@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?php wp_head() ?>
 </head>
-<header>
+<header class="fade-in">
 <div class="logo">
 <?php
 if (function_exists('the_custom_logo')) {

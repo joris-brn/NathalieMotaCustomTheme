@@ -3,13 +3,81 @@
 @import 'modale';
 @import 'single-photo'; 
 @import 'frontgrid'; 
+@import 'lightbox';
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@font-face {
+  font-family: 'Space Mono';
+  src: url('../fonts/SpaceMono-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('../fonts/SpaceMono-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Space Mono';
+  src: url('../fonts/SpaceMono-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Regular.ttf') format('truetype');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-Italic.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('../fonts/Poppins-BoldItalic.ttf') format('truetype');
+  font-weight: bold;
+  font-style: italic;
+}
 
 
+/* Application de l'animation au chargement de la page */
+
+.fade-in {
+  animation-name: fadeIn;
+  animation-duration: 0.6s; /* Durée totale de l'animation */
+  animation-timing-function: ease-in; /* Type de transition */
+  animation-fill-mode: forwards; /* Maintiens le style final après l'animation */
+}
+
+.fade-in2 {
+  animation-name: fadeIn;
+  animation-duration: 0.8s; /* Durée totale de l'animation */
+  animation-timing-function: ease-in; /* Type de transition */
+  animation-fill-mode: forwards; /* Maintiens le style final après l'animation */
+}
 
 .body {
     margin-right: 90px;
-    @media (max-width: 768px) {
+    @media (max-width: 968px) {
         margin-right: 0;
       }
 }
+
+
+
 

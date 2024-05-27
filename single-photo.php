@@ -46,8 +46,8 @@ while ( have_posts() ) :
     if ($next_post || $previous_post) {
         the_post_navigation(
             array(
-                'next_text' => $next_post ? '<div class="next-post-arrow"><div class="custom_arrow"><b>&#10230;</b></div><div class="miniature">' . get_the_post_thumbnail($next_post->ID, [100,100]) . '</div></div>' : '',
-                'prev_text' => $previous_post ? '<div class="prev-post-arrow"><div class="custom_arrow"><b>&#10229;</b></div><div class="miniature">' . get_the_post_thumbnail($previous_post->ID, [100,100]) . '</div></div>' : '',
+                'next_text' => $next_post ? '<div class="next-post-arrow"><div class="custom_arrow"><b>&#10230;</b></div><div class="miniaturenext">' . get_the_post_thumbnail($next_post->ID, [100,100]) . '</div></div>' : '',
+                'prev_text' => $previous_post ? '<div class="prev-post-arrow"><div class="custom_arrow"><b>&#10229;</b></div><div class="miniatureprev">' . get_the_post_thumbnail($previous_post->ID, [100,100]) . '</div></div>' : '',
             )
         );
     }
@@ -100,11 +100,18 @@ if ($categories && !is_wp_error($categories)) {
         }
         echo '</div>';
         wp_reset_postdata();
+    } else {
+        // Si aucune photo n'est disponible, ne pas afficher la section
+        ?>
+        <style>.recommandations { display: none; }</style>
+        <?php
     }
 }
 ?>
+
     </div>
 </section>
+
 
 <?php
 endwhile;
